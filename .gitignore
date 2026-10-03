@@ -1,0 +1,17 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets
+.env
+
+# Node (for Dev 2's frontend)
+node_modules/
+.next/
+
+# Data and IDE
+chroma_data/
+.vscode/
