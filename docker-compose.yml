@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:///./sql_app.db
+      - CHROMA_PERSIST_DIR=./chroma_db
+    volumes:
+      - ./data_storage:/app/chroma_db
+    restart: always
