@@ -8,6 +8,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Uses Vercel env variable, or falls back directly to your active ngrok URL
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://fiddle-accent-lion.ngrok-free.dev';
 
   const handleSearch = async (e: React.FormEvent) => {
