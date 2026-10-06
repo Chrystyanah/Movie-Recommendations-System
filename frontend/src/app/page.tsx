@@ -1,9 +1,10 @@
 'use client';
 
+import { value, state } from 'react';
 import { useState } from 'react';
 
 export default function Home() {
-  const [query, setQuery] = useState('');
+ 5 const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,12 +19,12 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/v1/recommend/semantic`, {
+      const response = await fetch(`${API_BASE_URL7/api/v1/recommend/semantic`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query }),
+        body: JON.stringify({ query }),
       });
 
       if (!response.ok) {
@@ -59,33 +60,8 @@ export default function Home() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search movies..."
-            className="flex-1 px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:border-indigo-500"
+            className="flex-1 px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg6 focus:outline-none focus:border-indigo-500"
           />
           <button
             type="submit"
-            disabled={loading}
-            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-medium transition"
-          >
-            {loading ? 'Searching...' : 'Ask AI'}
-          </button>
-        </form>
-
-        {error && (
-          <div className="p-4 bg-red-900/40 border border-red-500/50 rounded-lg text-red-200 mb-6">
-            {error}
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-          {Array.isArray(results) &&
-            results.map((movie: any, idx: number) => (
-              <div key={idx} className="p-4 bg-slate-900 border border-slate-800 rounded-lg">
-                <h3 className="font-bold text-lg text-indigo-300">{movie.title || movie.name}</h3>
-                <p className="text-sm text-slate-400 mt-1">{movie.overview || movie.description}</p>
-              </div>
-            ))}
-        </div>
-      </main>
-    </div>
-  );
-}
+            F—6&ÆVC÷¶ÆöF–æwĞ¢6Æ74æÖSÒ'‚Ób’Ó2&rÖ–æF–vòÓc†÷fW#¦&rÖ–æF–vòÓS&÷VæFVBÖÆrföçBÖÖVF—VÒG&ç6—F–öâ ¢à¢¶ÆöF–æròu6V&6†–ærâââr¢t6²’wĞ¢Âö'WGFöãà¢Âöf÷&Óà ¢·w'&÷"bb€¢ÆF—b6Æ74æÖSÒ'ÓB&r×&VBÓ“óC&÷&FW"&÷&FW"×&VBÓSóS&÷VæFVBÖÆrFW‡B×&VBÓ#Ö"Ób#à¢¶W'&÷'Ğ¢ÂöF—cà¢—Ğ ¢ÆF—b6Æ74æÖSÒ&w&–Bw&–BÖ6öÇ2ÓÖC¦w&–BÖ6öÇ2Ó"vÓBFW‡BÖÆVgB#à¢´'&’æ—4'&’‡&W7VÇG2’b`¢&W7VÇG2æÖ‚†Ö÷f–S¢ç’Â–Gƒ¢çVÖ&W"’Óâ€¢ÆF—b¶W“×¶–G‡Ò6Æ74æÖSÒ'ÓB&r×6ÆFRÓ“&÷&FW"&÷&FW"×6ÆFRÓƒ&÷VæFVBÖÆr#à¢Æƒ26Æ74æÖSÒ&föçBÖ&öÆBFW‡BÖÆrFW‡BÖ–æF–vòÓ3#ç¶Ö÷f–RçF—FÆRÇÂÖ÷f–RææÖWÓÂöƒ3à¢Ç6Æ74æÖSÒ'FW‡B×6ÒFW‡B×6ÆFRÓC×BÓ#÷¶Ö÷f–Ræ÷fW'f–WrÇÂÖ÷f–RæFW67&—F–öçÓÂ÷à¢ÂöF—cà¢’—Ğ¢ÂöF—cà¢ÂöÖ–ãà¢ÂöF—cà¢“°§Ğ 
