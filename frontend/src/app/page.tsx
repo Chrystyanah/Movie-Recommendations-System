@@ -41,7 +41,6 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen bg-[#F5F4EE] text-[#122823]">
-      {/* Sidebar - Dark Forest Green (#133E38) */}
       <aside className="w-64 bg-[#133E38] text-white p-6 flex flex-col justify-between hidden md:flex shadow-lg">
         <div>
           <div className="mb-10">
@@ -66,7 +65,6 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* Main Content Area - Warm Cream Background (#F5F4EE) */}
       <main className="flex-1 p-8 md:p-16 max-w-4xl mx-auto">
         <header className="flex justify-between items-center mb-12 md:hidden">
           <h1 className="text-2xl font-bold text-[#133E38]">CineAI</h1>
@@ -83,7 +81,6 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Search Input Box */}
         <form onSubmit={handleSearch} className="flex gap-3 mb-10 max-w-2xl">
           <input
             type="text"
@@ -107,7 +104,6 @@ export default function Home() {
           </div>
         )}
 
-        {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array.isArray(results) &&
             results.map((movie: any, idx: number) => (
