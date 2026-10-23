@@ -59,12 +59,12 @@ export default function Home() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search movies..."
-            className="flex-1 px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:border-indigo-500"
+            className="flex-1 px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:border-indigo-500 text-white placeholder-slate-500"
           />
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-medium transition"
+            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-medium transition disabled:opacity-50"
           >
             {loading ? 'Searching...' : 'Ask AI'}
           </button>
@@ -79,7 +79,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
           {Array.isArray(results) &&
             results.map((movie: any, idx: number) => (
-              <div key={idx} className="p-4 bg-slate-900 border border-slate-800 rounded-lg">
+              <div key={idx} className="p-4 bg-slate-900 border border-slate-800 rounded-lg shadow-md">
                 <h3 className="font-bold text-lg text-indigo-300">{movie.title || movie.name}</h3>
                 <p className="text-sm text-slate-400 mt-1">{movie.overview || movie.description}</p>
               </div>
