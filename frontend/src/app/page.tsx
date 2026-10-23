@@ -41,8 +41,8 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen bg-[#F5F4EE] text-[#122823]">
-      {/* Sidebar matching reference site left menu */}
-      <aside className="w-64 bg-[#133E38] text-white p-6 flex flex-col justify-between hidden md:flex">
+      {/* Sidebar - Dark Forest Green (#133E38) */}
+      <aside className="w-64 bg-[#133E38] text-white p-6 flex flex-col justify-between hidden md:flex shadow-lg">
         <div>
           <div className="mb-10">
             <h1 className="text-xl font-bold tracking-wider uppercase text-[#E1A655]">CineAI</h1>
@@ -66,7 +66,7 @@ export default function Home() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
+      {/* Main Content Area - Warm Cream Background (#F5F4EE) */}
       <main className="flex-1 p-8 md:p-16 max-w-4xl mx-auto">
         <header className="flex justify-between items-center mb-12 md:hidden">
           <h1 className="text-2xl font-bold text-[#133E38]">CineAI</h1>
@@ -89,7 +89,7 @@ export default function Home() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search movies with natural language..."
+            placeholder="Describe what movie you want to watch..."
             className="flex-1 px-5 py-4 bg-white border border-[#133E38]/20 rounded-xl focus:outline-none focus:border-[#133E38] shadow-sm text-[#122823] placeholder-[#526660]/60"
           />
           <button
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         )}
 
-        {/* Results List */}
+        {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array.isArray(results) &&
             results.map((movie: any, idx: number) => (
