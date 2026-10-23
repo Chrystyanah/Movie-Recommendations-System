@@ -40,48 +40,80 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white p-8">
-      <header className="flex justify-between items-center mb-12">
-        <h1 className="text-2xl font-bold text-indigo-400">CineAI</h1>
-      </header>
+    <div className="flex min-h-screen bg-[#F5F4EE] text-[#122823]">
+      {/* Sidebar matching reference site left menu */}
+      <aside className="w-64 bg-[#133E38] text-white p-6 flex flex-col justify-between hidden md:flex">
+        <div>
+          <div className="mb-10">
+            <h1 className="text-xl font-bold tracking-wider uppercase text-[#E1A655]">CineAI</h1>
+            <p className="text-xs text-emerald-200/70 mt-1 uppercase tracking-widest">Movie Support Kit</p>
+          </div>
 
-      <main className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold mb-4">
-          Discover Movies using <span className="text-indigo-500">Natural Language</span>
-        </h2>
-        <p className="text-slate-400 mb-8">
-          Search with natural phrases like "cyberpunk thriller with plot twists"
-        </p>
+          <nav className="space-y-4 text-emerald-100/80 font-medium">
+            <a href="#" className="block hover:text-white transition">Home</a>
+            <a href="#" className="block hover:text-white transition">What's Inside</a>
+            <a href="#" className="block hover:text-white transition">Watchlist</a>
+            <a href="#" className="block hover:text-white transition">FAQ</a>
+            <a href="#" className="block hover:text-white transition">About</a>
+          </nav>
+        </div>
 
-        <form onSubmit={handleSearch} className="flex gap-2 max-w-xl mx-auto mb-8">
+        <div className="border-t border-emerald-800/80 pt-6">
+          <h3 className="font-serif text-lg text-white mb-2">You're not alone.</h3>
+          <p className="text-xs text-emerald-200/70 leading-relaxed">
+            Finding the right movie for your mood shouldn't feel like endless scrolling.
+          </p>
+        </div>
+      </aside>
+
+      {/* Main Content Area */}
+      <main className="flex-1 p-8 md:p-16 max-w-4xl mx-auto">
+        <header className="flex justify-between items-center mb-12 md:hidden">
+          <h1 className="text-2xl font-bold text-[#133E38]">CineAI</h1>
+        </header>
+
+        <section className="mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#526660]">Built With Care</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-[#122823] mt-2 mb-4 leading-tight">
+            Discover movies without <br />
+            <span className="italic font-normal text-[#133E38]">scrolling endlessly.</span>
+          </h2>
+          <p className="text-[#526660] text-lg max-w-xl">
+            Search with natural phrases like "cyberpunk thriller with plot twists" or "heartwarming space journey".
+          </p>
+        </section>
+
+        {/* Search Input Box */}
+        <form onSubmit={handleSearch} className="flex gap-3 mb-10 max-w-2xl">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search movies..."
-            className="flex-1 px-4 py-3 bg-slate-900 border border-slate-800 rounded-lg focus:outline-none focus:border-indigo-500 text-white placeholder-slate-500"
+            placeholder="Search movies with natural language..."
+            className="flex-1 px-5 py-4 bg-white border border-[#133E38]/20 rounded-xl focus:outline-none focus:border-[#133E38] shadow-sm text-[#122823] placeholder-[#526660]/60"
           />
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg font-medium transition disabled:opacity-50"
+            className="px-8 py-4 bg-[#E1A655] hover:bg-[#d09544] text-[#122823] rounded-xl font-semibold transition shadow-sm disabled:opacity-50"
           >
-            {loading ? 'Searching...' : 'Ask AI'}
+            {loading ? 'Searching...' : 'Ask AI →'}
           </button>
         </form>
 
         {error && (
-          <div className="p-4 bg-red-900/40 border border-red-500/50 rounded-lg text-red-200 mb-6">
+          <div className="p-4 bg-red-100 border border-red-300 rounded-xl text-red-800 mb-6">
             {error}
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+        {/* Results List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array.isArray(results) &&
             results.map((movie: any, idx: number) => (
-              <div key={idx} className="p-4 bg-slate-900 border border-slate-800 rounded-lg shadow-md">
-                <h3 className="font-bold text-lg text-indigo-300">{movie.title || movie.name}</h3>
-                <p className="text-sm text-slate-400 mt-1">{movie.overview || movie.description}</p>
+              <div key={idx} className="p-6 bg-white border border-[#133E38]/10 rounded-2xl shadow-sm hover:shadow-md transition">
+                <h3 className="font-serif font-bold text-xl text-[#133E38] mb-2">{movie.title || movie.name}</h3>
+                <p className="text-sm text-[#526660] leading-relaxed">{movie.overview || movie.description}</p>
               </div>
             ))}
         </div>
